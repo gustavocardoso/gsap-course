@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      body {
+        font-family: 'Raleway', sans-serif;
+        font-optical-sizing: auto;
+        color: #fafafa;
+        background-color: #111;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slime {
+        width: 200px;
+        position: absolute;
+        left: 20px;
+      }
+
+      button {
+        position: relative;
+        top: 300px;
+        display: block;
+        padding: 0.7rem 1.2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #111;
+        background-color: #f69788;
+        border: 0;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      button:hover {
+        background-color: #ffbfb4;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../images/slime.svg" alt="Slime" class="slime" />
+    <button>Play</button>
+
+    <script>
+      const tl = gsap.timeline({ paused: true })
+      tl.to('.slime', {
+        keyframes: {
+          '25%': { y: 0 },
+          '50%': { y: -300, ease: 'sine.in' },
+          '75%': { y: 0, ease: 'sine.in' },
+          '100%': { x: 850, ease: 'none' }
+        },
+        duration: 2
+      })
+
+      document.querySelector('button').addEventListener('click', () => {
+        tl.restart()
+      })
+    </script>
+  </body>
+</html>

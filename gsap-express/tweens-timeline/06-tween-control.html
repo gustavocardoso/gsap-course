@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      body {
+        padding: 4rem;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        gap: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="/images/octopus.svg" class="octopus" alt="Octopus" width="200" />
+
+    <div class="buttons">
+      <button id="play" class="btn">play</button>
+      <button id="pause" class="btn">pause</button>
+      <button id="reverse" class="btn">reverse</button>
+      <button id="restart" class="btn">restart</button>
+    </div>
+
+    <script>
+      const play = document.getElementById('play')
+      const pause = document.getElementById('pause')
+      const reverse = document.getElementById('reverse')
+      const restart = document.getElementById('restart')
+
+      const tween = gsap.to('.octopus', { y: -480, duration: 3, ease: 'linear', paused: true })
+
+      play.addEventListener('click', () => tween.play())
+      pause.addEventListener('click', () => tween.pause())
+      reverse.addEventListener('click', () => tween.reverse())
+      restart.addEventListener('click', () => tween.restart())
+    </script>
+  </body>
+</html>

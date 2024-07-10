@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: normal normal 100%/1.5 sans-serif;
+  color: #111;
+  background-color: #eee;
+}
+
+.btn {
+  background-color: #f5d547;
+  font-size: 1.2rem;
+  color: #048ba8;
+  border: 0;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.btn:hover {
+  color: #f5d547;
+  background-color: #048ba8;
+}
+
+.btn:active {
+  background-color: #9266cc;
+  color: #f5d547;
+  transform: translateY(4px);
+  box-shadow: none;
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      body {
+        font-family: 'Raleway', sans-serif;
+        font-optical-sizing: auto;
+        background-color: #111;
+        padding: 4rem 8rem;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        gap: 2rem;
+      }
+
+      .button {
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #fafafa;
+        background-color: cadetblue;
+        padding: 1.4rem 2rem;
+        border-radius: 0.5rem;
+        will-change: transform;
+      }
+
+      .button:hover {
+        background-color: rgb(81, 140, 143);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" class="button">Book a Demo Now!</a>
+
+    <script>
+      const cta = document.querySelector('.button')
+      const tween = gsap.to(cta, { scale: 1.1, paused: true, yoyo: true, repeat: 15 })
+
+      cta.addEventListener('mouseenter', () => {
+        tween.restart()
+      })
+
+      cta.addEventListener('mouseleave', () => {
+        tween.pause()
+        gsap.to(cta, { scale: 1 })
+      })
+    </script>
+  </body>
+</html>

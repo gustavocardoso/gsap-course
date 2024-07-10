@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      body {
+        font-family: 'Raleway', sans-serif;
+        font-optical-sizing: auto;
+        color: #fafafa;
+        background-color: #111;
+        padding: 4rem 8rem;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        gap: 2rem;
+        overflow: hidden;
+      }
+
+      p {
+        width: fit-content;
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 2;
+        display: inline-block;
+        margin: 0 auto;
+        visibility: hidden;
+        perspective: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Do nulla consequat commodo eiusmod veniam est.
+      <br />
+      Sit pariatur ad aliqua do ea.
+      <br />
+      Lorem aliquip ullamco cupidatat enim non.
+      <br />
+      Occaecat id officia velit quis.
+    </p>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+
+    <script>
+      gsap.config({ trialWarn: false })
+      let split
+      let animation = gsap.timeline({})
+
+      function init() {
+        gsap.set('p', { autoAlpha: 1 })
+        split = new SplitText('p', { type: 'lines' })
+        animation.from(split.lines, {
+          opacity: 0,
+          // y: -20,
+          // scale: 0.4,
+          rotateX: -90,
+          rotateY: -80,
+          stagger: 0.3,
+          transformOrigin: '50% 50% -200'
+        })
+        // animation.from(split.chars, {
+        //   duration: 1,
+        //   y: 100,
+        //   opacity: 0,
+        //   stagger: 0.05,
+        //   ease: 'back'
+        // })
+      }
+
+      window.addEventListener('load', init)
+    </script>
+  </body>
+</html>

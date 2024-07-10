@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      h1,
+      .shadow {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        text-align: center;
+        opacity: 0;
+        position: absolute;
+      }
+
+      h1 {
+        color: #8114e1;
+        z-index: 10;
+        top: 100px;
+      }
+
+      .shadow {
+        color: transparent;
+        text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        z-index: 5;
+        top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello World, Gsap!</h1>
+      <span class="shadow">Hello World, Gsap!</span>
+    </div>
+
+    <script>
+      gsap.to('h1', { top: 200, opacity: 1, duration: 2, delay: 1, ease: 'elastic' })
+      gsap.to('.shadow', { opacity: 1, duration: 0.5, delay: 1.5 })
+    </script>
+  </body>
+</html>

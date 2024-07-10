@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      body {
+        padding: 4rem;
+      }
+
+      .octopus {
+        position: absolute;
+        top: 3rem;
+        left: 3rem;
+      }
+
+      .octopus-2 {
+        position: absolute;
+        top: 30rem;
+        left: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="/images/octopus.svg" class="octopus" alt="Octopus" width="200" />
+
+    <img src="/images/octopus.svg" class="octopus-2" alt="Octopus" width="200" />
+
+    <script>
+      gsap.to('.octopus', { x: 800, duration: 2, repeat: 1, yoyo: true })
+      gsap.to('.octopus-2', { x: 800, duration: 2, delay: 1, repeat: -1, yoyo: true })
+    </script>
+  </body>
+</html>

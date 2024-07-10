@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      body {
+        padding: 4rem;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        gap: 2rem;
+      }
+
+      .container {
+        background-color: blue;
+        width: 800px;
+        height: 500px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="../images/truck-final.webp" alt="Truck" class="truck" />
+    </div>
+
+    <script>
+      const frame = document.querySelector('.container')
+      const twenn = gsap.to('.truck', {
+        transformOrigin: '65px 160px',
+        rotation: -40,
+        repeat: 1,
+        yoyo: true,
+        paused: true
+      })
+
+      frame.addEventListener('click', () => {
+        twenn.restart()
+      })
+    </script>
+  </body>
+</html>

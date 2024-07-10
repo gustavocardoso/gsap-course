@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      body {
+        font-family: 'Raleway', sans-serif;
+        font-optical-sizing: auto;
+        color: #fafafa;
+        background-color: #111;
+        padding: 4rem 8rem;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        gap: 2rem;
+      }
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 900;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>I Love Panckakes So Much!</h1>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+
+    <script>
+      gsap.config({ trialWarn: false })
+      let split
+      let animation = gsap.timeline({})
+
+      function init() {
+        gsap.set('h1', { autoAlpha: 1 })
+        split = new SplitText('h1', { type: 'words' })
+        animation.from(split.words, {
+          opacity: 0,
+          y: -20,
+          scale: 0.4,
+          rotate: -40,
+          ease: 'back(4)',
+          stagger: 0.1
+        })
+        // animation.from(split.chars, {
+        //   duration: 1,
+        //   y: 100,
+        //   opacity: 0,
+        //   stagger: 0.05,
+        //   ease: 'back'
+        // })
+      }
+
+      window.addEventListener('load', init)
+    </script>
+  </body>
+</html>

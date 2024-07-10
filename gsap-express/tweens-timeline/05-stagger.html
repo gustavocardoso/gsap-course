@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      body {
+        padding: 4rem;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .seafood {
+        width: 80px;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="/images/octopus.svg" class="seafood" alt="Octopus" width="200" />
+    <img src="/images/octopus.svg" class="seafood" alt="Octopus" width="200" />
+    <img src="/images/octopus.svg" class="seafood" alt="Octopus" width="200" />
+    <img src="/images/octopus.svg" class="seafood" alt="Octopus" width="200" />
+    <img src="/images/octopus.svg" class="seafood" alt="Octopus" width="200" />
+    <img src="/images/octopus.svg" class="seafood" alt="Octopus" width="200" />
+    <img src="/images/octopus.svg" class="seafood" alt="Octopus" width="200" />
+
+    <script>
+      gsap.to('.seafood', {
+        y: -400,
+        scale: 3,
+        marginLeft: '+=30',
+        marginRight: '+=30',
+        duration: 2,
+        ease: 'bounce',
+        stagger: {
+          each: 0.2,
+          from: 'center'
+        }
+      })
+
+      gsap.to('.seafood', {
+        y: 0,
+        scale: 1,
+        marginLeft: '0.5rem',
+        marginRight: '0.5rem',
+        duration: 2,
+        ease: 'bounce',
+        stagger: {
+          each: 0.1,
+          from: 'center'
+        },
+        delay: 2
+      })
+    </script>
+  </body>
+</html>

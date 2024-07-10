@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      body {
+        padding: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="/images/octopus.svg" class="octopus" alt="Octopus" width="200" />
+
+    <script>
+      gsap.to('.octopus', { x: 600, y: 200, scale: 3, rotation: 360, duration: 3 })
+    </script>
+  </body>
+</html>

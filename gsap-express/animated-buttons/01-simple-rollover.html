@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      body {
+        font-family: 'Raleway', sans-serif;
+        font-optical-sizing: auto;
+        background-color: #111;
+        padding: 4rem;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        gap: 2rem;
+      }
+
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #555;
+        font-size: 3rem;
+        font-weight: 900;
+        white-space: nowrap;
+        text-transform: uppercase;
+      }
+
+      .dot {
+        height: 30px;
+        width: 30px;
+        background-color: #333;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <div class="dot"></div>
+      <p class="text">Home</p>
+    </div>
+
+    <script>
+      const item = document.querySelector('.item')
+      gsap.defaults({ duration: 0.3 })
+      const tl = gsap
+        .timeline({ paused: true })
+        .to('.text', { color: 'white', x: 10 })
+        .to('.dot', { backgroundColor: '#f93', scale: 1.5 }, 0)
+
+      item.addEventListener('mouseenter', () => tl.play())
+      item.addEventListener('mouseleave', () => tl.reverse())
+    </script>
+  </body>
+</html>
